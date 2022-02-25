@@ -11,8 +11,8 @@ const IpInput = () => {
       <div
         onFocus={onFocusHandler}
         onBlur={onBlurHandler}
-        className={`flex w-full h-14 rounded-lg
-                    overflow-hidden ${isFocus ? "outline outline-2" : ""}`}
+        className={`shadow-sm flex w-full h-14 rounded-lg
+                    overflow-hidden outline-2 ${isFocus ? "outline" : ""}`}
       >
         <input
           type="text"
@@ -21,6 +21,7 @@ const IpInput = () => {
           className="
                 w-full
                 outline-none px-4
+                text-lg
                 font-semibold text-very-dark-gray
                 "
         />
