@@ -7,7 +7,8 @@ const StatusContainer = () => {
         className="w-full bg-white rounded-lg
                     px-4 py-8 shadow-sm text-center
                     flex flex-col gap-4 
-                    md:flex-row md:text-left"
+                    md:flex-row md:text-left
+                    md:translate-y-[12%]" // translate to move half to the Header bottom
       >
         <Status header="ip address" info="192.212.174.101" />
         <Status header="location" info="Brooklyn, NY 10001" />

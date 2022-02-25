@@ -2,17 +2,11 @@ import { useState } from "react";
 import arrow from "../images/icon-arrow.svg";
 
 const IpInput = () => {
-  const [isFocus, setIsFocus] = useState(false);
-
-  const onFocusHandler = () => setIsFocus(true);
-  const onBlurHandler = () => setIsFocus(false);
   return (
     <div className="container max-w-2xl mx-auto px-6">
       <div
-        onFocus={onFocusHandler}
-        onBlur={onBlurHandler}
-        className={`shadow-sm flex w-full h-14 rounded-lg
-                    overflow-hidden outline-2 ${isFocus ? "outline" : ""}`}
+        className="shadow-sm flex w-full h-14 rounded-lg
+                    overflow-hidden"
       >
         <input
           type="text"
@@ -22,7 +16,7 @@ const IpInput = () => {
                 w-full
                 outline-none px-4
                 text-lg
-                font-semibold text-very-dark-gray
+                font-medium text-very-dark-gray
                 "
         />
         <button className="bg-very-dark-gray w-16 grid place-items-center">

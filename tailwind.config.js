@@ -6,6 +6,9 @@ module.exports = {
         "very-dark-gray": "hsl(0, 0%, 17%)",
         "dark-gray": "hsl(0, 0%, 59%)",
       },
+      backgroundImage: {
+        "header-pattern": "url('/src/images/pattern-bg.png')",
+      },
     },
   },
   plugins: [],
