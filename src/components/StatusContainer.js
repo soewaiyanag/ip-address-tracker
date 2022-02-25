@@ -10,7 +10,7 @@ const StatusContainer = () => {
                     md:flex-row md:text-left"
       >
         <Status header="ip address" info="192.212.174.101" />
-        <Status header="location" info="Brooklyn, Ny 10001" />
+        <Status header="location" info="Brooklyn, NY 10001" />
         <Status header="timezone" info="UTC-05:00" />
         <Status header="isp" info="SpaceX Starlink" />
       </div>
