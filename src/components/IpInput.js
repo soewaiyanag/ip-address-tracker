@@ -2,7 +2,7 @@ import arrow from "../images/icon-arrow.svg";
 
 const IpInput = () => {
   return (
-    <div className="container max-w-2xl mx-auto px-6">
+    <div className="container max-w-xl mx-auto px-6">
       <div
         className="shadow-sm flex w-full h-14 rounded-xl
                     overflow-hidden"

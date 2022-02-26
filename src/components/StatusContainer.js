@@ -3,7 +3,7 @@ import Status from "./Status";
 const StatusContainer = () => {
   return (
     <div
-      className="container max-w-6xl mx-auto px-6
+      className="container max-w-5xl mx-auto px-6
                 absolute left-1/2 -translate-x-1/2
                 md:top-[60%]" // translate to move half to the Header bottom
     >
