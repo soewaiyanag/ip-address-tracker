@@ -8,7 +8,7 @@ const StatusContainer = () => {
                 md:top-[60%]" // translate to move half to the Header bottom
     >
       <div
-        className="w-full bg-white rounded-lg
+        className="w-full bg-white rounded-xl
                     px-4 py-8 shadow-sm text-center
                     flex flex-col gap-4 
                     md:flex-row md:text-left"
