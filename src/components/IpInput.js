@@ -1,6 +1,10 @@
 import arrow from "../images/icon-arrow.svg";
+import { useContext } from "react";
+import IPContext from "../context/IPContext";
 
 const IpInput = () => {
+  const { IP, setIP } = useContext(IPContext);
+  console.log(IP);
   return (
     <div className="container max-w-xl mx-auto px-6">
       <div
