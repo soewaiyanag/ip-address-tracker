@@ -1,9 +1,9 @@
 import arrow from "../images/icon-arrow.svg";
 import { useContext, useState } from "react";
-import IPAddressContext from "../context/IPAddressContext";
+import DataContext from "../context/DataContext";
 
 const IpInput = () => {
-  const { IP, setIP } = useContext(IPAddressContext);
+  const { setDataByIP } = useContext(DataContext);
   const [inputValue, setInputValue] = useState("");
   return (
     <div className="container max-w-xl mx-auto px-6">
@@ -30,7 +30,7 @@ const IpInput = () => {
         />
         <button
           onClick={() => {
-            setIP(inputValue);
+            setDataByIP(inputValue);
           }}
           className="bg-very-dark-gray w-16 grid place-items-center"
         >

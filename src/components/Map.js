@@ -1,29 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import publicIp from "public-ip";
-import IPAddressContext from "../context/IPAddressContext";
-
-function apiURL(ipaddress) {
-  const corsPrefix = "https://guarded-gorge-60452.herokuapp.com/";
-  return `${corsPrefix}https://api.ip2location.com/v2/?ip=${ipaddress}&key=SW9NI7ZYHS&package=WS12`;
-}
+import DataContext from "../context/DataContext";
 
 const Map = () => {
-  const { IPAddress } = useContext(IPAddressContext);
   const [coordinate, setCoordinate] = useState([0, 0]);
-
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch(apiURL(await publicIp.v4()));
-      const data = await response.json();
-
-      const { latitude, longitude } = data;
-
-      console.log(data);
-      setCoordinate([latitude, longitude]);
-    }
-    fetchData();
-  }, []);
 
   return (
     <MapContainer
