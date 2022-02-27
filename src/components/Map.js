@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import publicIp from "public-ip";
 import IPAddressContext from "../context/IPAddressContext";
 
 function apiURL(ipaddress) {
@@ -13,17 +14,20 @@ const Map = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(apiURL("8.8.8.8"));
+      const response = await fetch(apiURL(await publicIp.v4()));
       const data = await response.json();
 
+      const { latitude, longitude } = data;
+
       console.log(data);
+      setCoordinate([latitude, longitude]);
     }
     fetchData();
-  }, [coordinate]);
+  }, []);
 
   return (
     <MapContainer
-      center={[1, 1]}
+      center={coordinate}
       zoom={8}
       zoomControl={false}
       className="h-screen relative z-0"
@@ -32,7 +36,7 @@ const Map = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={[1, 1]}>
+      <Marker position={coordinate}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
