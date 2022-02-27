@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { IPContextProvider } from "./context/IPContext";
+import { IPAddressContextProvider } from "./context/IPAddressContext";
 
 ReactDOM.render(
   <React.StrictMode>
-    <IPContextProvider>
+    <IPAddressContextProvider>
       <App />
-    </IPContextProvider>
+    </IPAddressContextProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

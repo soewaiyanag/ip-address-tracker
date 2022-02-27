@@ -1,10 +1,10 @@
 import arrow from "../images/icon-arrow.svg";
-import { useContext } from "react";
-import IPContext from "../context/IPContext";
+import { useContext, useState } from "react";
+import IPAddressContext from "../context/IPAddressContext";
 
 const IpInput = () => {
-  const { IP, setIP } = useContext(IPContext);
-  console.log(IP);
+  const { IP, setIP } = useContext(IPAddressContext);
+  const [inputValue, setInputValue] = useState("");
   return (
     <div className="container max-w-xl mx-auto px-6">
       <div
@@ -16,6 +16,10 @@ const IpInput = () => {
           name="IpInput"
           id="IpInput"
           placeholder="Search for any IP address or domain"
+          value={inputValue}
+          onChange={(e) => {
+            setInputValue(e.target.value);
+          }}
           className="
                 w-full
                 outline-none px-4
@@ -24,7 +28,12 @@ const IpInput = () => {
                 font-medium text-very-dark-gray
                 "
         />
-        <button className="bg-very-dark-gray w-16 grid place-items-center">
+        <button
+          onClick={() => {
+            setIP(inputValue);
+          }}
+          className="bg-very-dark-gray w-16 grid place-items-center"
+        >
           <img src={arrow} alt="arrow" />
         </button>
       </div>
