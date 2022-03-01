@@ -1,9 +1,7 @@
 import arrow from "../images/icon-arrow.svg";
-import { useContext, useState } from "react";
-import DataContext from "../context/DataContext";
+import { useState } from "react";
 
 const IpInput = () => {
-  const { setDataByIP } = useContext(DataContext);
   const [inputValue, setInputValue] = useState("");
   return (
     <div className="container max-w-xl mx-auto px-6">
@@ -29,9 +27,7 @@ const IpInput = () => {
                 "
         />
         <button
-          onClick={() => {
-            setDataByIP(inputValue);
-          }}
+          onClick={() => {}}
           className="bg-very-dark-gray w-16 grid place-items-center"
         >
           <img src={arrow} alt="arrow" />
