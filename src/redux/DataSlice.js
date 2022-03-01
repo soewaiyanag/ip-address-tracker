@@ -8,6 +8,7 @@ function apiURL(ipaddress) {
 const initialState = {
   status: "idle",
   data: {},
+  IPAddress: "",
 };
 
 export const fetchData = createAsyncThunk(
@@ -15,8 +16,7 @@ export const fetchData = createAsyncThunk(
   async (IPAddress) => {
     const response = await fetch(apiURL(IPAddress));
     const data = await response.json();
-    console.log(data);
-    return data;
+    return { data, IPAddress };
   }
 );
 
@@ -30,7 +30,8 @@ export const dataSlice = createSlice({
       })
       .addCase(fetchData.fulfilled, (state, action) => {
         state.status = "idle";
-        state.data = action.payload;
+        state.data = action.payload.data;
+        state.IPAddress = action.payload.IPAddress;
       })
       .addCase(fetchData.rejected, (state) => {
         state.status = "idle";

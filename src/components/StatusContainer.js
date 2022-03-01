@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Status from "./Status";
 
 const StatusContainer = () => {
-  const status = useSelector((state) => state.status);
+  const state = useSelector((state) => state);
   return (
     <div
       className="container max-w-5xl mx-auto px-6
@@ -15,11 +15,13 @@ const StatusContainer = () => {
                     flex flex-col gap-4 
                     md:flex-row md:text-left"
       >
-        <Status header="ip address" info="192.212.174.101" />
-        <Status header="location" info="Brooklyn, NY 10001" />
-        <Status header="timezone" info="UTC-05:00" />
-        {/* <Status header="isp" info="SpaceX Starlink" /> */}
-        <Status header="isp" info={status} />
+        <Status header="ip address" info={state.IPAddress} />
+        <Status
+          header="location"
+          info={`${state.data.city_name}, ${state.data.region_name}`}
+        />
+        <Status header="timezone" info={`UTC${state.data.time_zone}`} />
+        <Status header="isp" info={state.data.isp} />
       </div>
     </div>
   );
