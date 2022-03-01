@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import Status from "./Status";
 
 const StatusContainer = () => {
+  const status = useSelector((state) => state.status);
   return (
     <div
       className="container max-w-5xl mx-auto px-6
@@ -17,7 +19,7 @@ const StatusContainer = () => {
         <Status header="location" info="Brooklyn, NY 10001" />
         <Status header="timezone" info="UTC-05:00" />
         {/* <Status header="isp" info="SpaceX Starlink" /> */}
-        <Status header="isp" info={""} />
+        <Status header="isp" info={status} />
       </div>
     </div>
   );

@@ -1,8 +1,11 @@
 import arrow from "../images/icon-arrow.svg";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchData } from "../redux/DataSlice";
 
 const IpInput = () => {
   const [inputValue, setInputValue] = useState("");
+  const dispatch = useDispatch();
   return (
     <div className="container max-w-xl mx-auto px-6">
       <div
@@ -27,7 +30,9 @@ const IpInput = () => {
                 "
         />
         <button
-          onClick={() => {}}
+          onClick={() => {
+            dispatch(fetchData(inputValue));
+          }}
           className="bg-very-dark-gray w-16 grid place-items-center"
         >
           <img src={arrow} alt="arrow" />

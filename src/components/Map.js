@@ -1,22 +1,23 @@
-import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import DataContext from "../context/DataContext";
+import { useSelector } from "react-redux";
 
 const Map = () => {
-  const [coordinate, setCoordinate] = useState([0, 0]);
+  const latitude = useSelector((state) => state.data.latitude ?? 0);
+  const longitude = useSelector((state) => state.data.longitude ?? 0);
 
   return (
     <MapContainer
-      center={coordinate}
+      center={[latitude, longitude]}
       zoom={8}
       zoomControl={false}
+      doubleClickZoom={false}
       className="h-screen relative z-0"
     >
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={coordinate}>
+      <Marker position={[latitude, longitude]}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>

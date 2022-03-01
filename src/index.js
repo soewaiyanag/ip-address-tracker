@@ -5,6 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import { fetchData } from "./redux/DataSlice";
+import publicIp from "public-ip";
+
+// get and display location data by your publicIp by default
+(async function () {
+  store.dispatch(fetchData(await publicIp.v4()));
+})();
 
 ReactDOM.render(
   <React.StrictMode>
