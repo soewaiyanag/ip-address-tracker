@@ -6,6 +6,12 @@ import { fetchData } from "../redux/DataSlice";
 const IpInput = () => {
   const [inputValue, setInputValue] = useState("");
   const dispatch = useDispatch();
+
+  // EVENT LISTENER
+  const searchLocation = () => {
+    dispatch(fetchData(inputValue));
+  };
+
   return (
     <div className="container max-w-xl mx-auto px-6">
       <div
@@ -21,6 +27,9 @@ const IpInput = () => {
           onChange={(e) => {
             setInputValue(e.target.value);
           }}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") searchLocation();
+          }}
           className="
                 w-full
                 outline-none px-4
@@ -30,9 +39,7 @@ const IpInput = () => {
                 "
         />
         <button
-          onClick={() => {
-            dispatch(fetchData(inputValue));
-          }}
+          onClick={searchLocation}
           className="bg-very-dark-gray w-16 grid place-items-center"
         >
           <img src={arrow} alt="arrow" />
